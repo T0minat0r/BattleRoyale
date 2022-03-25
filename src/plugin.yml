@@ -1,0 +1,18 @@
+name: BattleRoyale
+main: de.mmocraft.main.BattleRoyale
+version: 1.0
+authors:
+  - NotJan
+  - Tomator
+api-version: 1.16
+description: Das offizielle BattleRoyale-Plugin vom MMOCraft Minecraft-Event!
+commands:
+  life:
+    permission: br.op
+    description: Setze die Leben von Spielern!
+  register:
+    description: Registriert dich beim Event!
+  unregister:
+    description: Meldet dich vom Event ab!
+  config:
+    description: Reloaded die Config!

@@ -1,0 +1,33 @@
+#BattleRoyale Configugration Version 1.0
+#Plugin made by NotJan & Tomator
+#Support us on dsc.gg/mmocraft
+#-----------------------------------------------------------
+#Use %player% for player's displayname
+#Use &a for example for Colorcodes
+#Use /n for making messages longer than one line (Doesn't work on every configurable message!)
+Messages:
+  Prefix: "§7[§6BattleRoyale§7] " #Leave a space at the end for formatting the message correctly!
+  Enabled: true
+  Join: "&a%player% &7hat den Server betreten"
+  Quit: "&c%player% &7hat den Server verlassen"
+  PlayerCount:
+    Enabled: true
+    Message: "&7(&aOnline: &7%playercount%)"
+  JoinStats:
+    Enabled: true
+    Message: "&7Willkommen, &aNotJan&7!"
+#Use § instead of & here for colors!!!!
+  ChatFormat: "§7%player% §7[%life%§7] §8» §7%message%"
+  AdminFormat: "§c&lADMIN §c%player% §8» §c%message%"
+#----------------------------------------------------------
+Server:
+  Open: "16:00:00" #hh:mm:ss
+  Close: "19:00:00"
+  PlayerAllowed: true
+Operators:
+  - NotJan
+  - Tomator
+  - TomplayzYT
+PlayerData:
+  NotJan:
+   Lifes: 3
