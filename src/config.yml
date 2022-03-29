@@ -13,21 +13,19 @@ Messages:
   PlayerCount:
     Enabled: true
     Message: "&7(&aOnline: &7%playercount%)"
-  JoinStats:
-    Enabled: true
-    Message: "&7Willkommen, &aNotJan&7!"
 #Use § instead of & here for colors!!!!
   ChatFormat: "§7%player% §7[%life%§7] §8» §7%message%"
   AdminFormat: "§c&lADMIN §c%player% §8» §c%message%"
 #----------------------------------------------------------
 Server:
-  Open: "16:00:00" #hh:mm:ss
-  Close: "19:00:00"
-  PlayerAllowed: true
+  Join:
+    Enabled: false
+  Register:
+    Enabled: true
 Operators:
   - NotJan
   - Tomator
   - TomplayzYT
 PlayerData:
   NotJan:
-   Lifes: 3
+   Lifes: '3'

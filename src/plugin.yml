@@ -1,6 +1,6 @@
 name: BattleRoyale
 main: de.mmocraft.main.BattleRoyale
-version: 1.0
+version: 1.1
 authors:
   - NotJan
   - Tomator
@@ -16,3 +16,5 @@ commands:
     description: Meldet dich vom Event ab!
   config:
     description: Reloaded die Config!
+  lootdrop:
+    description: Spawns a lootdrop above your head on Y=256

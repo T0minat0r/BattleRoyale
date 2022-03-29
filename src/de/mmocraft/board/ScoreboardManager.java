@@ -9,10 +9,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.*;
 
+import java.text.ParseException;
+
 import static org.bukkit.scoreboard.DisplaySlot.BELOW_NAME;
 
 public class ScoreboardManager {
-    public static void setScoreBoard(Player player) {
+    public static void setScoreBoard(Player player) throws ParseException {
+        //Scoreboard
         Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
         Objective sidebar = board.registerNewObjective("sidebar", "dummy", "§6§lBattleRoyale");
         sidebar.setDisplaySlot(DisplaySlot.SIDEBAR);
@@ -57,12 +60,12 @@ public class ScoreboardManager {
         //Nextevent
         Team nexevent = board.registerNewTeam("nextevent");
         nexevent.addEntry(ChatColor.YELLOW + ""+ ChatColor.YELLOW);
-        nexevent.setPrefix("§8» §aNächstes Event: §eN/A ");
+        nexevent.setPrefix("§8» §aNächstes Event: §e18Uhr");
         sidebar.getScore(ChatColor.YELLOW + "" + ChatColor.YELLOW).setScore(3);
         //Serverclose
         Team serverclose = board.registerNewTeam("serverclose");
         serverclose.addEntry(ChatColor.GREEN + "" + ChatColor.GREEN);
-        serverclose.setPrefix("§8» §cServerstopp:" + Integer.parseInt(Math.subtractExact(TimeChecker.time, BattleRoyale.getInstance().getConfig().getString("Server.Close"))));
+        serverclose.setPrefix("§8» §cServerstopp: §eN/A");
         sidebar.getScore(ChatColor.GREEN + "" + ChatColor.GREEN).setScore(2);
         //IPScore
         Score ip = sidebar.getScore("§9MMOCraft.de");
@@ -89,15 +92,19 @@ public class ScoreboardManager {
                     board.getTeam("eventday").setPrefix("§8» §7Eventtag: §a1");
                 }
                 if(board.getTeam("nextevent")!= null) {
-                    board.getTeam("nextevent").setPrefix("§8» §aNächstes Event: §eN/A ");
+                    board.getTeam("nextevent").setPrefix("§8» §aNächstes Event: §e18Uhr");
                 }
                 if(board.getTeam("serverclose") != null){
-                    board.getTeam("serverclose").setPrefix("§8» §cServerstopp: §eN/A");
+                    try {
+                        board.getTeam("serverclose").setPrefix("§8» §cServerstopp: §e" + TimeChecker.time());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                 }
                 if(board.getObjective("§c❤") != null) {
                     board.getObjective("§c❤").getScore(player.getName()).setScore(Integer.parseInt(BattleRoyale.getInstance().getConfig().getString("PlayerData." + player.getDisplayName()+ ".Lifes")));
                 }
             }
-        }.runTaskTimer(BattleRoyale.getInstance(), 20L, 20L);
+        }.runTaskTimer(BattleRoyale.getInstance(), 0, 20L);
     }
 }
