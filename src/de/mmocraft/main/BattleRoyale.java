@@ -4,6 +4,7 @@ import de.mmocraft.board.ScoreboardManager;
 import de.mmocraft.commands.*;
 import de.mmocraft.listener.*;
 import de.mmocraft.listener.KickManager;
+import de.mmocraft.run.LootdropOpener;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -41,6 +42,7 @@ public class BattleRoyale extends JavaPlugin {
         pl.registerEvents(new ChatFormat(), this);
         pl.registerEvents(new DeathListener(), this);
         pl.registerEvents(new KickManager(), this);
+        pl.registerEvents(new LootdropOpener(), this);
     }
     public void registerCommands() {
         getCommand("life").setExecutor(new LifeCommand());
